@@ -97,6 +97,7 @@
 	tableView.showsVerticalScrollIndicator	 = NO;
 	tableView.showsHorizontalScrollIndicator = NO;
 	
+    [tableView setFrame:CGRectIntegral(tableView.frame)];
 	[self addSubview:tableView];
 }
 
@@ -240,6 +241,7 @@
 	else {
 		sectionView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 	}
+    [rotatedView setFrame:CGRectIntegral(rotatedView.frame)];
 	[rotatedView addSubview:sectionView];
 	return rotatedView;
 }
@@ -390,7 +392,7 @@
 		
 		// Prepare and add the custom subviews
 		[self prepareRotatedView:rotatedView];
-		
+		[rotatedView setFrame:CGRectIntegral(rotatedView.frame)];
 		[cell.contentView addSubview:rotatedView];
 	}
 	[self setCell:cell boundsForOrientation:_orientation];
@@ -426,13 +428,14 @@
 	
 	content.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 	content.tag = CELL_CONTENT_TAG;
+    [content setFrame:CGRectIntegral(content.frame)];
 	[rotatedView addSubview:content];
 }
 
 
 - (void)setDataForRotatedView:(UIView *)rotatedView forIndexPath:(NSIndexPath *)indexPath {
 	UIView *content = [rotatedView viewWithTag:CELL_CONTENT_TAG];
-	
+	[content setFrame:CGRectIntegral(content.frame)];
    [delegate easyTableView:self setDataForView:content forIndexPath:indexPath];
 }
 
