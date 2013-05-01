@@ -179,6 +179,10 @@
 	[self.tableView setContentOffset:defaultOffset animated:animated];
 }
 
+- (void)clearSelectedIndexPath
+{
+    _selectedIndexPath = nil;
+}
 
 - (void)setSelectedIndexPath:(NSIndexPath *)indexPath {
 	if (![_selectedIndexPath isEqual:indexPath]) {
